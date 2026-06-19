@@ -1,0 +1,153 @@
+---
+layout: default
+---
+
+{%- comment -%}
+  Local override of al_folio_core's about.liquid (v1.0.11).
+  Only addition vs. upstream: an optional full-bleed hero banner before the
+  main content, controlled by the `banner:` block in the page front matter.
+  See _pages/about.md. Remove the banner block in front matter to disable it,
+  or delete this file to fall back to the gem's stock layout.
+{%- endcomment -%}
+
+{%- if page.banner and page.banner.image -%}
+  {%- assign banner_image = page.banner.image | relative_url -%}
+  {%- assign banner_border_color = page.banner.border_color | default: '#e74c3c' -%}
+  <div class="about-banner{% if page.banner.border %} about-banner--bordered{% endif %}"
+       style="background-image: url('{{ banner_image }}');{% if page.banner.border %} border-color: {{ banner_border_color }};{% endif %}">
+    {%- if page.banner.title -%}
+      <div class="about-banner__overlay">
+        <h1 class="about-banner__title">{{ page.banner.title }}</h1>
+        {%- if page.banner.tagline -%}
+          <p class="about-banner__tagline">{{ page.banner.tagline }}</p>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+  </div>
+
+  <style>
+    .about-banner {
+      /* break out of the centered `.container` to full viewport width */
+      position: relative;
+      left: 50%;
+      right: 50%;
+      width: 100vw;
+      margin-left: -50vw;
+      margin-right: -50vw;
+      margin-top: -1.5rem; /* tuck under the fixed navbar (.container mt-5) */
+      margin-bottom: 2.5rem;
+      height: 320px;
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .about-banner--bordered {
+      border: 4px solid #e74c3c; /* overridden inline by banner.border_color */
+      box-sizing: border-box;
+    }
+    .about-banner__overlay {
+      text-align: center;
+      color: #fff;
+      padding: 1rem 2rem;
+      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.55);
+    }
+    .about-banner__title {
+      margin: 0;
+      font-size: 3.2rem;
+      font-weight: 500;
+      color: #fff;
+    }
+    .about-banner__tagline {
+      margin: 0.5rem 0 0;
+      font-size: 1.2rem;
+    }
+    @media (max-width: 768px) {
+      .about-banner { height: 200px; }
+      .about-banner__title { font-size: 2rem; }
+    }
+  </style>
+{%- endif -%}
+
+<div class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      {% if site.title == 'blank' %}
+        <span class="font-weight-bold">{{ site.first_name }}</span> {{ site.middle_name }}
+        {{ site.last_name }}
+      {% else %}
+        {{ site.title }}
+      {% endif %}
+    </h1>
+    <p class="desc">{{ page.subtitle }}</p>
+  </header>
+
+  <article>
+    {% if page.profile %}
+      <div class="profile float-{% if page.profile.align == 'left' %}left{% else %}right{% endif %}">
+        {% if page.profile.image %}
+          {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
+          {% if page.profile.image_circular %}
+            {% assign profile_image_class = 'img-fluid z-depth-1 rounded-circle' %}
+          {% else %}
+            {% assign profile_image_class = 'img-fluid z-depth-1
+      rounded' %}
+          {% endif %}
+          {% capture sizes %}(min-width: {{ site.max_width }}) {{ site.max_width | minus: 30 | times: 0.3}}px, (min-width: 576px)
+      30vw, 95vw"{% endcapture %}
+          {%
+            include figure.liquid loading="eager" path=profile_image_path class=profile_image_class sizes=sizes alt=page.profile.image
+            cache_bust=true
+          %}
+        {% endif %}
+        {% if page.profile.more_info %}
+          <div class="more-info">{{ page.profile.more_info }}</div>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    <div class="clearfix">{{ content }}</div>
+
+    <!-- News -->
+    {% if page.announcements and page.announcements.enabled %}
+      <h2>
+        <a href="{{ '/news/' | relative_url }}" style="color: inherit">news</a>
+      </h2>
+      {% include news.liquid limit=true %}
+    {% endif %}
+
+    <!-- Latest posts -->
+    {% if page.latest_posts and page.latest_posts.enabled %}
+      <h2>
+        <a href="{{ '/blog/' | relative_url }}" style="color: inherit">latest posts</a>
+      </h2>
+      {% include latest_posts.liquid %}
+    {% endif %}
+
+    <!-- Selected papers -->
+    {% if page.selected_papers %}
+      <h2>
+        <a href="{{ '/publications/' | relative_url }}" style="color: inherit">selected publications</a>
+      </h2>
+      {% include selected_papers.liquid %}
+    {% endif %}
+
+    <!-- Social -->
+    {% if page.social %}
+      <div class="social">
+        <div class="contact-icons">{% social_links %}</div>
+
+        <div class="contact-note">{{ site.contact_note }}</div>
+      </div>
+    {% endif %}
+
+    {% if site.newsletter and site.newsletter.enabled and site.footer_fixed %}
+      {% if site.plugins contains 'al_newsletter' %}
+        {% include plugins/al_newsletter_form_center_margin.liquid %}
+      {% else %}
+        {% include newsletter.liquid center=true %}
+      {% endif %}
+    {% endif %}
+  </article>
+</div>
