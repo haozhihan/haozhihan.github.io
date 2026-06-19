@@ -1,0 +1,42 @@
+---
+# Local override of al_folio_core's assets/css/main.scss.
+# Keeps the gem's module pipeline, then overrides theme colors at the end.
+---
+@charset "utf-8";
+
+/* Built-in Sass modules */
+@use "sass:math";
+@use "sass:string";
+
+/* Design tokens must be configured before loading partials. */
+@use "variables" with (
+  $max-content-width: {{ site.max_width | default:  "930px" }}
+);
+
+/* Theme + core partials (resolved from the al_folio_core gem's _sass). */
+@use "themes";
+@use "layout";
+@use "typography";
+@use "navbar";
+@use "footer";
+@use "blog";
+@use "publications";
+@use "components";
+@use "utilities";
+
+/* Specialized styles */
+@use "tabs";
+@use "teachings";
+@use "typograms";
+
+/* ---------------------------------------------------------------------------
+   Local color overrides — edit the hex values to recolor the site.
+   --global-theme-color drives links, hovers, active nav, and accents.
+--------------------------------------------------------------------------- */
+:root {
+  --global-theme-color: #b3122f; /* light mode accent */
+}
+
+html[data-theme="dark"] {
+  --global-theme-color: #ff6b6b; /* dark mode accent */
+}

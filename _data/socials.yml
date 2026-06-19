@@ -4,5 +4,5 @@
 email: haozhi.han@stu.pku.edu.cn # your email address
 scholar_userid: qTWHUpwAAAAJ # your Google Scholar ID
 linkedin_username: haozhihan # your LinkedIn username
-github_username: haozhihan # your GitHub username
-rss_icon: false # comment this line to hide the RSS icon
+# github_username: haozhihan # (hidden) remove the leading "#" to show the GitHub icon
+# rss_icon: true # (hidden) uncomment to show the RSS icon
