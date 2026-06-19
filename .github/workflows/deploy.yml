@@ -57,12 +57,19 @@ on:
       - "!README.md"
   workflow_dispatch:
 
+# Allow the workflow to publish to GitHub Pages via the official Actions pipeline.
 permissions:
-  contents: write
+  contents: read
+  pages: write
+  id-token: write
+
+# Only one concurrent Pages deployment; let in-progress runs finish.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
 jobs:
-  deploy:
-    # available images: https://github.com/actions/runner-images#available-images
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️
@@ -91,6 +98,12 @@ jobs:
           valueFile: "_config.yml"
           propertyPath: "giscus.repo"
           value: ${{ github.repository }}
+      - name: Configure Pages 🛠️
+        # Enables GitHub Pages with the "GitHub Actions" source so this workflow
+        # publishes directly from main — no gh-pages branch, no native Jekyll rebuild.
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
       - name: Install and Build 🔧
         run: |
           sudo apt-get update && sudo apt-get install -y imagemagick
@@ -101,10 +114,19 @@ jobs:
         run: |
           npm install -g purgecss
           purgecss -c purgecss.config.js
-      - name: Disable GitHub Pages Jekyll re-build 🚫
-        run: touch _site/.nojekyll
-      - name: Deploy 🚀
-        if: github.event_name != 'pull_request'
-        uses: JamesIves/github-pages-deploy-action@v4
+      - name: Upload Pages artifact 📦
+        uses: actions/upload-pages-artifact@v3
         with:
-          folder: _site
+          path: _site
+
+  deploy:
+    needs: build
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages 🚀
+        id: deployment
+        uses: actions/deploy-pages@v4
