@@ -40,3 +40,115 @@
 html[data-theme="dark"] {
   --global-theme-color: #ff6b6b; /* dark mode accent */
 }
+
+/* ---------------------------------------------------------------------------
+   Slimmer top navbar (more compact, like wang-yuke.com).
+   ID-scoped so it wins over the theme's default .navbar / .nav-link padding.
+--------------------------------------------------------------------------- */
+#navbar.navbar {
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+  min-height: 0;
+}
+
+#navbar .navbar-nav .nav-item .nav-link {
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
+}
+
+/* ---------------------------------------------------------------------------
+   Link text color, independent of the red accent (--global-theme-color).
+   Matches the theme's own `a, table.table a` selector so this wins.
+--------------------------------------------------------------------------- */
+a,
+table.table a {
+  color: #0d3b86; /* dark blue */
+
+  &:hover {
+    color: #082a63; /* even darker on hover */
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Publications: render each paper as a card, and bold the author's own name.
+   (The theme already underlines the matched author via `.author > em`; the
+   matched author comes from `scholar.last_name`/`first_name` in _config.yml.)
+--------------------------------------------------------------------------- */
+.publications ol.bibliography li {
+  background: var(--global-card-bg-color);
+  border: 1px solid var(--global-divider-color);
+  border-radius: 10px;
+  padding: 1.1rem 1.3rem;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+  transition:
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+
+  &:hover {
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+  }
+
+  /* author's own name: bold (underline is already applied by the theme) */
+  .author > em {
+    font-weight: 700;
+    border-bottom-width: 2px; /* a touch thicker underline */
+  }
+
+  /* highlighted tags (CCF-A / awards), rendered by _includes/hook/bib.liquid */
+  .pub-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin: 0.15rem 0;
+  }
+  .pub-rank,
+  .pub-honor {
+    display: inline-block;
+    padding: 0.05rem 0.5rem;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    color: #fff;
+    border-radius: 6px;
+    vertical-align: middle;
+  }
+  .pub-rank {
+    background: #6a1d2f; /* dark maroon */
+  }
+  .pub-honor {
+    background: #dea450; /* gold */
+    color: #4a2c08; /* dark text for contrast on the lighter gold */
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Colorful social icons on the left of the navbar (à la otiliastr.github.io).
+   The theme sets the icon color on `i::before`, so override that.
+--------------------------------------------------------------------------- */
+#navbar .navbar-brand.social {
+  display: flex;
+  align-items: center;
+
+  a {
+    margin-right: 0.6rem;
+    line-height: 1;
+  }
+  a:last-child {
+    margin-right: 0;
+  }
+
+  .fa-envelope::before {
+    color: #d44638;
+  } /* email */
+  .ai-google-scholar::before {
+    color: #4285f4;
+  } /* Google Scholar */
+  .fa-linkedin::before {
+    color: #0a66c2;
+  } /* LinkedIn */
+
+  a:hover i::before {
+    filter: brightness(0.82);
+  }
+}

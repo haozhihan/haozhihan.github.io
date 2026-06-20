@@ -1,0 +1,12 @@
+{%- comment -%}
+  Local bibliography hook (auto-included by al_folio_core's _layouts/bib.liquid).
+  Renders custom BibTeX fields as highlighted tags:
+    - `rank`  -> red tag   (e.g. CCF-A)
+    - `honor` -> gold tag  (e.g. 🏆 Best Student Paper Award Finalist)
+{%- endcomment -%}
+{%- if entry.rank or entry.honor -%}
+  <div class="periodical pub-tags">
+    {%- if entry.rank -%}<span class="pub-rank">{{ entry.rank }}</span>{%- endif -%}
+    {%- if entry.honor -%}<span class="pub-honor">{{ entry.honor }}</span>{%- endif -%}
+  </div>
+{%- endif -%}

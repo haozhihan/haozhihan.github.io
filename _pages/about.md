@@ -8,7 +8,7 @@ subtitle:
 # _layouts/about.liquid override). Replace `image` with your own banner and
 # tweak the text; remove this whole block to disable the banner.
 banner:
-  image: assets/img/ChatGPT Image 2026年6月20日 00_17_29.png
+  image: assets/img/ChatGPT Image 2026年6月20日 13_15_47.png
   title: "Haozhi Han @ PKU"
   title_color: "#ffffff" # banner title color (white reads best over this bright, busy photo); omit for default white
   tagline: #"Systems & Algorithms for Scalable Physical Intelligence"
@@ -22,7 +22,7 @@ profile:
   more_info: 
 
 selected_papers: true # includes a list of papers marked as "selected={true}"
-social: true # includes social icons at the bottom of the page
+social: false # moved to the navbar (enable_navbar_social); no duplicate icons at the bottom
 
 announcements:
   enabled: false # includes a list of news items
@@ -38,6 +38,6 @@ latest_posts:
 Hi! I am **Haozhi Han** (韩昊知), a Ph.D. student at the [School of Computer Science](https://cs.pku.edu.cn/), [Peking University](https://www.pku.edu.cn/), advised by [Prof. Yifeng Chen](https://cs.pku.edu.cn/info/1062/1606.htm) and [Assistant Prof. Kun Li](https://www.likun.tech/). 
 <!-- I am also a research intern at [Microsoft Research Asia](https://www.microsoft.com/en-us/research/lab/microsoft-research-asia/). -->
 
-My research centers on **high-performance systems and algorithms for scalable physical intelligence — from microscopic science to embodied AI**.
+My research centers on high-performance systems and algorithms for **scalable physical intelligence** — from microscopic science to embodied AI.
 
 My work has appeared at top venues in high-performance systems and algorithms, including **PPoPP** and **SC** (with an **SC 2025 Best Student Paper** nomination). Feel free to reach out via [email](mailto:haozhi.han@stu.pku.edu.cn).

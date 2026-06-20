@@ -13,8 +13,9 @@ layout: default
 {%- if page.banner and page.banner.image -%}
   {%- assign banner_image = page.banner.image | relative_url -%}
   {%- assign banner_border_color = page.banner.border_color | default: '#e74c3c' -%}
+  {%- assign banner_overlay = page.banner.overlay | default: 0.4 -%}
   <div class="about-banner{% if page.banner.border %} about-banner--bordered{% endif %}"
-       style="background-image: url('{{ banner_image }}');{% if page.banner.border %} border-color: {{ banner_border_color }};{% endif %}">
+       style="background-image: url('{{ banner_image }}'); --banner-scrim: rgba(0, 0, 0, {{ banner_overlay }});{% if page.banner.border %} border-color: {{ banner_border_color }};{% endif %}">
     {%- if page.banner.title -%}
       <div class="about-banner__overlay">
         <h1 class="about-banner__title" style="color: {{ page.banner.title_color | default: '#fff' }};">{{ page.banner.title }}</h1>
@@ -34,20 +35,32 @@ layout: default
       width: 100vw;
       margin-left: -50vw;
       margin-right: -50vw;
-      margin-top: -1.5rem; /* tuck under the fixed navbar (.container mt-5) */
+      margin-top: -3rem; /* tuck right under the fixed navbar (cancels .container mt-5) */
       margin-bottom: 2.5rem;
       height: 320px;
       background-size: cover;
-      background-position: center;
+      background-position: center top; /* anchor the crop to the top so the upper part of the image shows */
       display: flex;
       align-items: center;
       justify-content: center;
+      overflow: hidden;
+    }
+    /* Dark scrim over the photo so the title and image read together
+       (à la wang-yuke.com). Tune via `banner.overlay` in about.md. */
+    .about-banner::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: var(--banner-scrim, rgba(0, 0, 0, 0.4));
+      pointer-events: none;
     }
     .about-banner--bordered {
       border: 4px solid #e74c3c; /* overridden inline by banner.border_color */
       box-sizing: border-box;
     }
     .about-banner__overlay {
+      position: relative; /* sit above the ::before scrim */
+      z-index: 1;
       text-align: center;
       color: #fff;
       padding: 1rem 2rem;
@@ -73,17 +86,15 @@ layout: default
 {%- endif -%}
 
 <div class="post">
-  <header class="post-header">
-    <h1 class="post-title">
-      {% if site.title == 'blank' %}
-        <span class="font-weight-bold">{{ site.first_name }}</span> {{ site.middle_name }}
-        {{ site.last_name }}
-      {% else %}
-        {{ site.title }}
-      {% endif %}
-    </h1>
-    <p class="desc">{{ page.subtitle }}</p>
-  </header>
+  {%- comment -%}
+    Name heading intentionally hidden — the hero banner above already shows the
+    name. To restore it, add back an <h1 class="post-title"> here.
+  {%- endcomment -%}
+  {%- if page.subtitle -%}
+    <header class="post-header">
+      <p class="desc">{{ page.subtitle }}</p>
+    </header>
+  {%- endif -%}
 
   <article>
     {% if page.profile %}
