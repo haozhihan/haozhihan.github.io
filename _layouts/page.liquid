@@ -1,0 +1,43 @@
+---
+layout: default
+---
+
+{%- comment -%}
+  Local override of al_folio_core's page.liquid (v1.0.11).
+  Only addition vs. upstream: an optional full-bleed hero banner (via the
+  `banner:` front matter, shared with about.liquid). When a banner is present,
+  the plain title/description header is hidden — the banner carries the title.
+{%- endcomment -%}
+
+{% include hero_banner.liquid %}
+
+{% if page._styles %}
+  <!-- Page/Post style -->
+  <style type="text/css">
+    {{ page._styles }}
+  </style>
+{% endif %}
+
+<div class="post">
+  {%- unless page.banner and page.banner.image -%}
+    <header class="post-header">
+      <h1 class="post-title">{{ page.title }}</h1>
+      <p class="post-description">{{ page.description }}</p>
+    </header>
+  {%- endunless -%}
+
+  <article>
+    {{ content }}
+  </article>
+
+  {% if page.related_publications %}
+    <h2>References</h2>
+    <div class="publications">
+      {% bibliography --cited_in_order %}
+    </div>
+  {% endif %}
+
+  {% if site.plugins contains 'al_comments' %}
+    {% include plugins/al_comments.liquid %}
+  {% endif %}
+</div>

@@ -42,18 +42,27 @@ html[data-theme="dark"] {
 }
 
 /* ---------------------------------------------------------------------------
+   Site font: Calibri (Windows) with open-source / system fallbacks so the
+   look stays close on macOS/Linux where Calibri isn't installed.
+   (Carlito is a metric-compatible open clone of Calibri.)
+--------------------------------------------------------------------------- */
+body {
+  font-family: Calibri, Carlito, "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
+}
+
+/* ---------------------------------------------------------------------------
    Slimmer top navbar (more compact, like wang-yuke.com).
    ID-scoped so it wins over the theme's default .navbar / .nav-link padding.
 --------------------------------------------------------------------------- */
 #navbar.navbar {
-  padding-top: 0.2rem;
-  padding-bottom: 0.2rem;
-  min-height: 0;
+  padding-top: 0.4rem;
+  padding-bottom: 0.4rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* subtle drop shadow under the bar */
 }
 
 #navbar .navbar-nav .nav-item .nav-link {
-  padding-top: 0.3rem;
-  padding-bottom: 0.3rem;
+  padding-top: 0.4rem;
+  padding-bottom: 0.4rem;
 }
 
 /* ---------------------------------------------------------------------------
@@ -117,8 +126,8 @@ table.table a {
     background: #6a1d2f; /* dark maroon */
   }
   .pub-honor {
-    background: #dea450; /* gold */
-    color: #4a2c08; /* dark text for contrast on the lighter gold */
+    background: #b8860b; /* dark gold */
+    color: #fff; /* white text */
   }
 }
 
@@ -129,9 +138,10 @@ table.table a {
 #navbar .navbar-brand.social {
   display: flex;
   align-items: center;
+  font-size: 1.95rem; /* slightly larger square icons */
 
   a {
-    margin-right: 0.6rem;
+    margin-right: 0.65rem;
     line-height: 1;
   }
   a:last-child {
@@ -139,14 +149,16 @@ table.table a {
   }
 
   .fa-envelope::before {
+    content: "\f199"; /* swap to fa-square-envelope (square variant) */
     color: #d44638;
   } /* email */
   .ai-google-scholar::before {
+    content: "\e9f9"; /* swap to ai-google-scholar-square (square variant) */
     color: #4285f4;
   } /* Google Scholar */
   .fa-linkedin::before {
     color: #0a66c2;
-  } /* LinkedIn */
+  } /* LinkedIn (already a square glyph) */
 
   a:hover i::before {
     filter: brightness(0.82);

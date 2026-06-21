@@ -1,8 +1,8 @@
 ---
 layout: post
-date: 2015-10-22 15:59:00-0400
+date: 2026-06-20 09:00:00+0800
 inline: true
 related_posts: false
 ---
 
-A simple inline announcement.
+Our paper *Pushing a Single GPU to Its Limits and Scaling to Tens of Thousands: RL-Guided, Physically Consistent KMC for Nuclear Materials Simulation* was accepted to **ISC 2026**.
