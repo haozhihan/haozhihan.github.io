@@ -8,7 +8,7 @@ subtitle:
 # _layouts/about.liquid override). Replace `image` with your own banner and
 # tweak the text; remove this whole block to disable the banner.
 banner:
-  image: assets/img/ChatGPT Image 2026年6月20日 13_15_47.png
+  image: assets/img/Snipaste_2026-06-23_12-25-02.jpg
   title: "Haozhi Han @ PKU"
   title_color: "#ffffff" # banner title color (white reads best over this bright, busy photo); omit for default white
   tagline: #"Systems & Algorithms for Scalable Physical Intelligence"
