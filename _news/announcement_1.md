@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Our paper *Pushing a Single GPU to Its Limits and Scaling to Tens of Thousands: RL-Guided, Physically Consistent KMC for Nuclear Materials Simulation* was accepted to **ISC 2026**.
+Our paper *Pushing a Single GPU to Its Limits and Scaling to Tens of Thousands: RL-Guided, Physically Consistent KMC for Nuclear Materials Simulation* was accepted at ISC 2026!

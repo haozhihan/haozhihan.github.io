@@ -35,9 +35,13 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-Hi! I am **Haozhi Han** (韩昊知), a Ph.D. student at the [School of Computer Science](https://cs.pku.edu.cn/), [Peking University](https://www.pku.edu.cn/), advised by [Prof. Yifeng Chen](https://cs.pku.edu.cn/info/1062/1606.htm) and [Assistant Prof. Kun Li](https://www.likun.tech/). 
+Hi! I am Haozhi Han (韩昊知), a Ph.D. student at the [School of Computer Science](https://cs.pku.edu.cn/), [Peking University](https://www.pku.edu.cn/), advised by [Prof. Yifeng Chen](https://cs.pku.edu.cn/info/1062/1606.htm) and [Assistant Prof. Kun Li](https://www.likun.tech/). 
 <!-- I am also a research intern at [Microsoft Research Asia](https://www.microsoft.com/en-us/research/lab/microsoft-research-asia/). -->
 
 My research centers on high-performance systems and algorithms for **scalable physical intelligence** — from microscopic science to embodied AI.
 
-My work has appeared at top venues in high-performance systems and algorithms, including **PPoPP** and **SC** (with an **SC 2025 Best Student Paper** nomination). Feel free to reach out via [email](mailto:haozhi.han@stu.pku.edu.cn).
+My work has appeared at top venues in high-performance systems and algorithms, including PPoPP and SC (with an SC 2025 Best Student Paper nomination). Feel free to reach out via [email](mailto:haozhi.han@stu.pku.edu.cn).
+
+<div class="recruit-callout" markdown="1">
+**Looking for long-term collaborators:** I am actively looking for motivated long-term collaborators on AI4S infrastructure and physical intelligence infrastructure. If you are interested in **HPC**, **AI4S Infra**, or **Physical Intelligence**, please feel free to email me at [haozhi.han@stu.pku.edu.cn](mailto:haozhi.han@stu.pku.edu.cn).
+</div>

@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-*SparStencil* was selected as a **Best Student Paper Award Finalist** at **SC 2025** 🏆. Together with *Matrix Is All You Need*, two of our papers appeared at SC 2025.
+*SparStencil* was selected as a `Best Student Paper Award Finalist` at SC 2025 🏆. Together with *Matrix Is All You Need*, two of our papers appeared at SC 2025.

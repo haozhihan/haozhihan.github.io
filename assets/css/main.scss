@@ -42,12 +42,40 @@ html[data-theme="dark"] {
 }
 
 /* ---------------------------------------------------------------------------
+   Recruiting / collaboration callout box on the about page (cream highlight).
+--------------------------------------------------------------------------- */
+.recruit-callout {
+  background: #fcf6da;
+  border: 1px solid #ecd98f;
+  border-radius: 8px;
+  padding: 0.9rem 1.25rem;
+  margin: 1.6rem 0;
+  color: #6b5618;
+  line-height: 1.6;
+
+  p {
+    margin: 0;
+  }
+  strong {
+    color: #4a3a0a;
+  }
+}
+
+/* ---------------------------------------------------------------------------
    Site font: Calibri (Windows) with open-source / system fallbacks so the
    look stays close on macOS/Linux where Calibri isn't installed.
    (Carlito is a metric-compatible open clone of Calibri.)
 --------------------------------------------------------------------------- */
 body {
   font-family: Calibri, Carlito, "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
+}
+
+/* Body text is light (300), so the default `bolder` on <strong> only reaches
+   400 and looks weak. Force a real 700 so **bold** stands out (e.g. the bio's
+   "scalable physical intelligence"). */
+strong,
+b {
+  font-weight: 700;
 }
 
 /* ---------------------------------------------------------------------------
@@ -65,16 +93,22 @@ body {
   padding-bottom: 0.4rem;
 }
 
+/* Bold the current page's nav item (theme's `bolder` only reaches 400 on the
+   light 300 body weight, so force a real 700). */
+#navbar .navbar-nav .nav-item.active > .nav-link {
+  font-weight: 700;
+}
+
 /* ---------------------------------------------------------------------------
    Link text color, independent of the red accent (--global-theme-color).
    Matches the theme's own `a, table.table a` selector so this wins.
 --------------------------------------------------------------------------- */
 a,
 table.table a {
-  color: #0d3b86; /* dark blue */
+  color: #8b1a2b; /* dark red */
 
   &:hover {
-    color: #082a63; /* even darker on hover */
+    color: #6a1320; /* even darker on hover */
   }
 }
 
