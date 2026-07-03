@@ -4,5 +4,9 @@
 email: haozhi.han@stu.pku.edu.cn # your email address
 scholar_userid: qTWHUpwAAAAJ # your Google Scholar ID
 linkedin_username: haozhihan # your LinkedIn username
+xiaohongshu:
+  logo: xhs-icon
+  title: Xiaohongshu
+  url: https://www.xiaohongshu.com/user/profile/5e6d6e230000000001007f35
 # github_username: haozhihan # (hidden) remove the leading "#" to show the GitHub icon
 # rss_icon: true # (hidden) uncomment to show the RSS icon

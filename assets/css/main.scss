@@ -172,29 +172,83 @@ table.table a {
 #navbar .navbar-brand.social {
   display: flex;
   align-items: center;
-  font-size: 1.95rem; /* slightly larger square icons */
+  font-size: 1.8rem;
 
   a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.02em;
+    height: 1.02em;
     margin-right: 0.65rem;
+    border-radius: 0.14em;
     line-height: 1;
+    text-decoration: none;
   }
   a:last-child {
     margin-right: 0;
   }
+  a i {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1em;
+    height: 1em;
+    line-height: 1;
+    font-style: normal;
+  }
+  a i::before {
+    display: block;
+    line-height: 1;
+    color: #fff !important;
+  }
 
+  a:has(.fa-envelope) {
+    background: #d44638;
+  }
   .fa-envelope::before {
-    content: "\f199"; /* swap to fa-square-envelope (square variant) */
-    color: #d44638;
+    content: "\f0e0"; /* envelope inside our unified square */
+    font-size: 0.56em;
   } /* email */
+  a:has(.ai-google-scholar) {
+    background: #4285f4;
+  }
   .ai-google-scholar::before {
-    content: "\e9f9"; /* swap to ai-google-scholar-square (square variant) */
-    color: #4285f4;
+    content: "\e9d4"; /* Scholar glyph inside our unified square */
+    font-size: 0.67em;
   } /* Google Scholar */
+  a:has(.fa-linkedin) {
+    background: #0a66c2;
+  }
   .fa-linkedin::before {
-    color: #0a66c2;
-  } /* LinkedIn (already a square glyph) */
+    content: "\f0e1"; /* linkedin-in inside our unified square */
+    font-size: 0.56em;
+  } /* LinkedIn */
 
-  a:hover i::before {
+  .xhs-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1em;
+    height: 1em;
+    color: #fff;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 1;
+    vertical-align: 0;
+  }
+  a:has(.xhs-icon) {
+    background: #ff2442;
+  }
+  .xhs-icon::before {
+    content: "小红书";
+    color: #fff;
+    font-size: 0.25em;
+    letter-spacing: -0.08em;
+    transform: translateX(-0.03em);
+  }
+
+  a:hover {
     filter: brightness(0.82);
   }
 }
