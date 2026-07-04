@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Received the `"Star of Tomorrow" Internship Award` from Microsoft Research!
+Received the `"Star of Tomorrow" Internship Award` 🏆 from Microsoft Research!
