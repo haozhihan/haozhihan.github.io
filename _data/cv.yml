@@ -1,13 +1,13 @@
 cv:
   name: Haozhi Han
-  label: Ph.D. Student
+  label: Ph.D. Student in Computer Science
   email: haozhi.han@stu.pku.edu.cn
-  location: Beijing, China
   image: ""
   summary: >
-    Ph.D. student at the School of Computer Science, Peking University, working on
-    high-performance systems and algorithms for scalable physical intelligence, from
-    microscopic science to embodied AI.
+    Ph.D. student in the School of Computer Science at Peking University, advised by
+    Prof. Yifeng Chen and Assistant Prof. Kun Li. My research develops high-performance
+    systems and algorithms for scalable physical intelligence, spanning scientific
+    computing, AI4Science infrastructure, and embodied AI.
 
   social_networks:
     - network: GoogleScholar
@@ -20,69 +20,56 @@ cv:
   sections:
     Education:
       - institution: Peking University
-        location: Beijing, China
-        url: https://english.pku.edu.cn/
         area: Computer Science
-        studyType: Ph.D.
+        studyType: Ph.D. Student
         start_date: 2025-07
         end_date: present
-        highlights:
-          - Advised by Prof. Yifeng Chen and Assistant Prof. Kun Li.
 
       - institution: Peking University
-        location: Beijing, China
-        url: https://english.pku.edu.cn/
         area: Engineering
-        studyType: M.Eng.
+        studyType: Master of Engineering (M.Eng.)
         start_date: 2022-09
         end_date: 2025-06
 
-      - institution: Beijing University of Technology & University College Dublin (Joint Programme)
-        location: Beijing, China / Dublin, Ireland
-        url: https://www.bjut.edu.cn/
+      - institution: University College Dublin
         area: Computer Science
-        studyType: B.S.
+        studyType: Bachelor of Science (B.S.)
+        start_date: 2018-09
+        end_date: 2022-06
+
+      - institution: Beijing University of Technology
+        area: Computer Science
+        studyType: Bachelor of Science (B.S.)
         start_date: 2018-09
         end_date: 2022-06
 
     Experience:
-      - company: Microsoft Research Asia
+      - company: Institute for AI Industry Research (AIR), Tsinghua University
+        start_date: 2026-01
+        end_date: present
+
+      - company: Microsoft Research
         position: Research Intern
-        location: Beijing, China
         url: https://www.microsoft.com/en-us/research/lab/microsoft-research-asia/
         start_date: 2023-08
-        end_date: present
-        highlights:
-          - High-performance systems and algorithms for scientific computing and physical intelligence on AI accelerators.
+        end_date: 2026-06
+
+    Academic Service:
+      - Artifact Committee Member, ASPLOS 2027
 
     Awards:
-      - title: Microsoft Research Asia "Star of Tomorrow" Internship Award
-        date: 2024
-        awarder: Microsoft Research Asia
-
-      - title: SC 2025 Best Student Paper Award Finalist (SparStencil)
+      - title: Best Student Paper Award Finalist
         date: 2025
         awarder: ACM/IEEE Supercomputing Conference
 
-      - title: Peking University Third-Class Scholarship
+      - title: Star of Tomorrow Internship Award
+        date: 2024
+        awarder: Microsoft Research
+
+      - title: Academic Excellence Scholarship
         date: 2023
         awarder: Peking University
 
-      - title: Peking University Academic Excellence Scholarship
-        date: 2023
-        awarder: Peking University
-
-      - title: IEEEXtreme 24-Hour Programming Competition, International Third Prize
-        date: 2020
-        awarder: IEEE
-
-      - title: China "Internet+" College Student Innovation and Entrepreneurship Competition, Third Prize
-        date: 2020
-
-      - title: Academic Excellence Scholarship, Beijing University of Technology (×3)
+      - title: Academic Excellence Scholarship
         date: 2019 - 2021
-        awarder: Beijing University of Technology
-
-      - title: Beijing University of Technology Elite Student Program
-        date: 2019
         awarder: Beijing University of Technology

@@ -1,0 +1,121 @@
+{% comment %}
+  Compact, two-column overview for the education and experience sections on
+  this site. The data remains standard RenderCV data so the PDF workflow is
+  unaffected.
+{% endcomment %}
+{% assign education_entries = cv.sections.Education | default: empty_array %}
+{% assign experience_entries = cv.sections.Experience | default: empty_array %}
+{% assign volunteer_entries = cv.sections.Volunteer | default: empty_array %}
+{% assign experience_entries = experience_entries | concat: volunteer_entries %}
+
+<section class="card mt-3 p-3 cv-academic-career" aria-label="Education and experience">
+  <div class="cv-academic-career__column">
+    <h3 class="cv-awards__heading">Education</h3>
+    <ol class="cv-academic-career__list">
+      {% for entry in education_entries %}
+        {% capture start_date %}{% if entry.start_date %}{{ entry.start_date }}{% elsif entry.startDate %}{{ entry.startDate }}{% endif %}{% endcapture %}
+        {% capture end_date %}{% if entry.end_date %}{{ entry.end_date }}{% elsif entry.endDate %}{{ entry.endDate }}{% endif %}{% endcapture %}
+        {% assign start_display = start_date | strip | append: '-01' | date: '%b. %Y' %}
+        {% assign end_value = end_date | strip %}
+        {% if end_value == 'present' or end_value == 'Present' %}
+          {% assign end_display = 'Present' %}
+        {% else %}
+          {% assign end_display = end_value | append: '-01' | date: '%b. %Y' %}
+        {% endif %}
+        {% capture study_type %}{% if entry.studyType %}{{ entry.studyType }}{% elsif entry.degree %}{{ entry.degree }}{% endif %}{% endcapture %}
+        {% assign logo = nil %}
+        {% if entry.institution == 'Peking University' %}
+          {% assign logo = '/assets/img/education/peking-university.png' %}
+        {% elsif entry.institution == 'Beijing University of Technology' %}
+          {% assign logo = '/assets/img/education/beijing-university-of-technology.png' %}
+        {% elsif entry.institution == 'University College Dublin' %}
+          {% assign logo = '/assets/img/education/university-college-dublin.svg' %}
+        {% endif %}
+
+        {% assign is_doctoral_student = false %}
+        {% if entry.institution == 'Peking University' and study_type contains 'Ph.D.' %}
+          {% assign is_doctoral_student = true %}
+        {% endif %}
+
+        <li class="cv-academic-career__item">
+          {% if logo %}
+            <a class="cv-academic-career__logo{% if logo contains '.svg' %} cv-academic-career__logo--inverse{% endif %}" href="{{ entry.url }}" aria-label="{{ entry.institution }}" target="_blank" rel="noopener noreferrer">
+              <img src="{{ logo | relative_url }}" alt="{{ entry.institution }} logo" loading="lazy">
+            </a>
+          {% endif %}
+          <div class="cv-academic-career__details">
+            <a class="cv-academic-career__name" href="{{ entry.url }}" target="_blank" rel="noopener noreferrer">{{ entry.institution }}</a>
+            {% if entry.institution == 'University College Dublin' %}
+              <p class="cv-academic-career__ranking">(QS ranked 100)</p>
+            {% endif %}
+            {% if is_doctoral_student %}
+              <p class="cv-academic-career__meta">School of {{ entry.area }}</p>
+              <p class="cv-academic-career__role">{{ study_type }}</p>
+            {% elsif study_type != '' and entry.area %}
+              <p class="cv-academic-career__meta">{{ study_type | replace: 'Bachelor of Science (B.S.)', 'B.S.' | replace: 'Master of Engineering (M.Eng.)', 'M.Eng.' }} in {{ entry.area }}</p>
+            {% elsif study_type != '' or entry.area %}
+              <p class="cv-academic-career__meta">{{ study_type }}{{ entry.area }}</p>
+            {% endif %}
+          </div>
+          <time class="cv-academic-career__date">{{ start_display }} – {{ end_display }}</time>
+        </li>
+      {% endfor %}
+    </ol>
+  </div>
+
+  <div class="cv-academic-career__divider" aria-hidden="true"></div>
+
+  <div class="cv-academic-career__column">
+    <h3 class="cv-awards__heading">Experience</h3>
+    <ol class="cv-academic-career__list">
+      {% for entry in experience_entries %}
+        {% capture start_date %}{% if entry.start_date %}{{ entry.start_date }}{% elsif entry.startDate %}{{ entry.startDate }}{% endif %}{% endcapture %}
+        {% capture end_date %}{% if entry.end_date %}{{ entry.end_date }}{% elsif entry.endDate %}{{ entry.endDate }}{% endif %}{% endcapture %}
+        {% assign start_display = start_date | strip | append: '-01' | date: '%b. %Y' %}
+        {% assign end_value = end_date | strip %}
+        {% if end_value == 'present' or end_value == 'Present' %}
+          {% assign end_display = 'Present' %}
+        {% else %}
+          {% assign end_display = end_value | append: '-01' | date: '%b. %Y' %}
+        {% endif %}
+        {% capture company_name %}{% if entry.name %}{{ entry.name }}{% elsif entry.company %}{{ entry.company }}{% elsif entry.organization %}{{ entry.organization }}{% endif %}{% endcapture %}
+        {% assign is_microsoft = false %}
+        {% if company_name contains 'Microsoft Research' %}
+          {% assign is_microsoft = true %}
+        {% endif %}
+        {% assign is_air = false %}
+        {% if company_name contains 'Institute for AI Industry Research' %}
+          {% assign is_air = true %}
+        {% endif %}
+
+        <li class="cv-academic-career__item{% if is_microsoft %} cv-academic-career__item--microsoft{% elsif is_air %} cv-academic-career__item--air{% endif %}">
+          {% if is_microsoft %}
+            <a class="cv-academic-career__logo cv-academic-career__logo--microsoft" href="{{ entry.url }}" aria-label="{{ company_name }}" target="_blank" rel="noopener noreferrer">
+              <img src="{{ '/assets/img/experience/microsoft-research.png' | relative_url }}" alt="Microsoft logo" loading="lazy">
+            </a>
+          {% elsif is_air %}
+            <span class="cv-academic-career__logo cv-academic-career__logo--air" role="img" aria-label="AIR logo">
+              <img src="{{ '/assets/img/experience/air-tsinghua.png' | relative_url }}" alt="Institute for AI Industry Research logo" loading="lazy">
+            </span>
+          {% endif %}
+          <div class="cv-academic-career__details">
+            {% if entry.url %}
+              <a class="cv-academic-career__name" href="{{ entry.url }}" target="_blank" rel="noopener noreferrer">{{ company_name }}</a>
+            {% else %}
+              <span class="cv-academic-career__name">{{ company_name }}</span>
+            {% endif %}
+            {% if entry.position or entry.summary %}
+              <p class="cv-academic-career__meta">
+                {{ entry.position }}{% if entry.position and entry.summary %}<span aria-hidden="true"> · </span>{% endif %}{{ entry.summary }}
+              </p>
+            {% endif %}
+            {% if entry.highlights %}
+              <p class="cv-academic-career__note">{{ entry.highlights | first | markdownify | remove: '<p>' | remove: '</p>' }}</p>
+            {% endif %}
+          </div>
+          <time class="cv-academic-career__date">{{ start_display }} – {{ end_display }}</time>
+        </li>
+      {% endfor %}
+    </ol>
+  </div>
+</section>

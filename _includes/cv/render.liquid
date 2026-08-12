@@ -1,0 +1,93 @@
+{% comment %}
+  Site-specific RenderCV page. The data stays in `_data/cv.yml`; only the web
+  presentation differs from the plugin's default section-by-section layout.
+{% endcomment %}
+{% assign cv = site.data.cv.cv %}
+
+<div class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      {{ page.title }}
+      {% if page.cv_pdf %}
+        <a href="{{ page.cv_pdf | relative_url }}" target="_blank" rel="noopener noreferrer" class="float-right" aria-label="Download CV PDF">
+          <i class="fa-solid fa-file-pdf" aria-hidden="true"></i>
+        </a>
+      {% endif %}
+    </h1>
+    {% if page.description %}
+      <p class="post-description">{{ page.description }}</p>
+    {% endif %}
+  </header>
+
+  <article>
+    <div class="cv">
+      {% if cv.name or cv.label or cv.email %}
+        <section class="card mt-3 p-3">
+          <h3 class="cv-awards__heading">Contact Information</h3>
+          <table class="table table-cv table-sm table-borderless">
+            {% if cv.name %}<tr><td class="p-1 pr-2 font-weight-bold">Name</td><td class="p-1 pl-2 font-weight-light">{{ cv.name }}</td></tr>{% endif %}
+            {% if cv.label %}<tr><td class="p-1 pr-2 font-weight-bold">Professional Title</td><td class="p-1 pl-2 font-weight-light">{{ cv.label }}</td></tr>{% endif %}
+            {% if cv.email %}<tr><td class="p-1 pr-2 font-weight-bold">Email</td><td class="p-1 pl-2 font-weight-light"><a href="mailto:{{ cv.email }}">{{ cv.email }}</a></td></tr>{% endif %}
+          </table>
+        </section>
+      {% endif %}
+
+      {% if cv.summary %}
+        <section class="card mt-3 p-3">
+          <h3 class="cv-awards__heading">Professional Summary</h3>
+          <p>{{ cv.summary | markdownify | remove: '<p>' | remove: '</p>' }}</p>
+        </section>
+      {% endif %}
+
+      {% assign empty_array = '' | split: ',' %}
+      {% assign education_entries = cv.sections.Education | default: empty_array %}
+      {% assign experience_entries = cv.sections.Experience | default: empty_array %}
+      {% assign volunteer_entries = cv.sections.Volunteer | default: empty_array %}
+      {% if education_entries.size > 0 or experience_entries.size > 0 or volunteer_entries.size > 0 %}
+        <a class="anchor" id="education"></a>
+        <a class="anchor" id="experience"></a>
+        {% include cv/academic_career.liquid %}
+      {% endif %}
+
+      {% for section_pair in cv.sections %}
+        {% assign section_title = section_pair[0] %}
+        {% assign section_entries = section_pair[1] %}
+        {% if section_title == 'Education' or section_title == 'Experience' or section_title == 'Volunteer' %}
+          {% continue %}
+        {% endif %}
+
+        <a class="anchor" id="{{ section_title | slugify }}"></a>
+        {% if section_title == 'Awards' or section_title == 'Honors and Awards' %}
+          <section class="card mt-3 p-3 cv-awards" aria-labelledby="{{ section_title | slugify }}-heading">
+            <h3 id="{{ section_title | slugify }}-heading" class="cv-awards__heading">{{ section_title }}</h3>
+            <ol class="cv-awards__list">
+              {% for award in section_entries %}
+                <li>
+                  {% if award.date %}<time class="cv-awards__date">{{ award.date }}</time>{% endif %}
+                  <span class="cv-awards__details"><span class="cv-awards__title">{{ award.title }}</span>{% if award.awarder %}<span class="cv-awards__awarder"> — {{ award.awarder }}</span>{% endif %}</span>
+                </li>
+              {% endfor %}
+            </ol>
+          </section>
+        {% else %}
+          <section class="card mt-3 p-3">
+            <h3 class="cv-awards__heading">{{ section_title }}</h3>
+            {% if section_title == 'Academic Service' %}
+            <ul class="cv-services">
+              {% for service in section_entries %}
+                <li>{{ service | markdownify | remove: '<p>' | remove: '</p>' }}</li>
+              {% endfor %}
+            </ul>
+            {% else %}
+            <ul class="card-text font-weight-light list-group list-group-flush">
+              {% for entry in section_entries %}
+                <li class="list-group-item">{{ entry | markdownify | remove: '<p>' | remove: '</p>' }}</li>
+              {% endfor %}
+            </ul>
+            {% endif %}
+          </section>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </article>
+</div>

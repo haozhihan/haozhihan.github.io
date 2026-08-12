@@ -4,9 +4,9 @@
     - `rank`  -> red tag   (e.g. CCF-A)
     - `honor` -> gold tag  (e.g. 🏆 Best Student Paper Award Finalist)
 {%- endcomment -%}
-{%- if entry.rank or entry.honor -%}
-  <div class="periodical pub-tags">
-    {%- if entry.rank -%}<span class="pub-rank">{{ entry.rank }}</span>{%- endif -%}
-    {%- if entry.honor -%}<span class="pub-honor">{{ entry.honor }}</span>{%- endif -%}
-  </div>
+{%- if entry.rank -%}
+  <span class="pub-rank pub-rank--venue">{{ entry.rank }}</span>
+{%- endif -%}
+{%- if entry.honor -%}
+  <span class="pub-honor pub-honor--venue">{{ entry.honor }}</span>
 {%- endif -%}

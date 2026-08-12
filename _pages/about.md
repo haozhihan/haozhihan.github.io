@@ -25,7 +25,7 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 social: false # moved to the navbar (enable_navbar_social); no duplicate icons at the bottom
 
 announcements:
-  enabled: true # includes a list of news items
+  enabled: false # keep news on its own page; do not expand it on the homepage
   scrollable: true # adds a vertical scroll bar if there are more than 3 news items
   limit: 5 # leave blank to include all the news in the `_news` folder
 
