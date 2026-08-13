@@ -7,8 +7,9 @@
   {%- assign banner_image = page.banner.image | relative_url -%}
   {%- assign banner_border_color = page.banner.border_color | default: '#e74c3c' -%}
   {%- assign banner_overlay = page.banner.overlay | default: 0.4 -%}
+  {%- assign banner_position = page.banner.position | default: 'center top' -%}
   <div class="about-banner{% if page.banner.border %} about-banner--bordered{% endif %}"
-       style="background-image: url('{{ banner_image }}'); --banner-scrim: rgba(0, 0, 0, {{ banner_overlay }});{% if page.banner.border %} border-color: {{ banner_border_color }};{% endif %}">
+       style="background-image: url('{{ banner_image }}'); background-position: {{ banner_position }}; --banner-scrim: rgba(0, 0, 0, {{ banner_overlay }});{% if page.banner.border %} border-color: {{ banner_border_color }};{% endif %}">
     {%- if page.banner.title -%}
       <div class="about-banner__overlay">
         <h1 class="about-banner__title" style="color: {{ page.banner.title_color | default: '#fff' }};">{{ page.banner.title }}</h1>
@@ -33,7 +34,7 @@
       /* Match the compact 240px desktop hero used by limigwenshao.github.io. */
       height: 240px;
       background-size: cover;
-      background-position: center top; /* anchor the crop to the top so the upper part of the image shows */
+      background-position: center top; /* can be overridden per page via banner.position */
       display: flex;
       align-items: center;
       justify-content: center;

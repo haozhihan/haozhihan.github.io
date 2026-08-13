@@ -1,6 +1,6 @@
 ---
 layout: about
-title: about
+title: home
 permalink: /
 subtitle:
 
@@ -9,6 +9,7 @@ subtitle:
 # tweak the text; remove this whole block to disable the banner.
 banner:
   image: assets/img/pku.png
+  position: center 35%
   title: "Haozhi Han @ PKU"
   title_color: "#ffffff" # banner title color (white reads best over this bright, busy photo); omit for default white
   tagline: #"Systems & Algorithms for Scalable Physical Intelligence"
