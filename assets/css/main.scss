@@ -44,27 +44,77 @@ html[data-theme="dark"] {
 /* Keep the portrait clear of the collaboration callout on the homepage. */
 @media (min-width: 576px) {
   .profile.profile--compact {
-    width: 22%;
+    width: 25%;
+  }
+}
+
+/* Identity and contact details beneath the homepage portrait. */
+.profile.profile--compact .more-info {
+  margin: 0.65rem 0 0;
+  padding-top: 0.5rem;
+  border-top: 1px solid #d7e3ed;
+  font-family: inherit;
+  text-align: center;
+}
+
+.profile-contact {
+  color: #243447;
+  font-size: 0.88rem;
+  letter-spacing: 0.01em;
+  line-height: 1.75;
+  white-space: nowrap;
+}
+
+.profile-contact__role {
+  margin-bottom: 0.2rem;
+  color: #355f7c;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.profile-contact__label {
+  display: inline-block;
+  width: 1.15em;
+  font-size: 1.08em;
+
+  &--email {
+    color: #d44638;
+  }
+
+  &--wechat {
+    color: #07c160;
   }
 }
 
 /* ---------------------------------------------------------------------------
-   Recruiting / collaboration callout box on the about page (cream highlight).
+   Recruiting / collaboration callout box on the about page (cool blue-gray).
 --------------------------------------------------------------------------- */
 .recruit-callout {
-  background: #fcf6da;
-  border: 1px solid #ecd98f;
+  background: #f2f6fa;
+  border: 1px solid #c9d8e6;
   border-radius: 8px;
-  padding: 0.9rem 1.25rem;
+  padding: 0.7rem 1.25rem;
   margin: 1.6rem 0;
-  color: #6b5618;
-  line-height: 1.6;
+  color: #243447;
+  line-height: 1.5;
 
   p {
     margin: 0;
   }
   strong {
-    color: #4a3a0a;
+    color: #7b1d32;
+  }
+
+  &__email {
+    white-space: nowrap;
+  }
+}
+
+/* Match the left-hand text column while keeping the portrait on the right. */
+@media (min-width: 576px) {
+  .recruit-callout {
+    display: block;
+    width: calc(75% - 1rem);
   }
 }
 
@@ -192,14 +242,14 @@ table.table a {
   }
 
   .pub-feature-label {
-    color: #e53935; /* vivid red */
+    color: #c4382f; /* reference red */
   }
 
   .pub-feature-link {
-    color: #0078d4 !important; /* Microsoft blue */
+    color: #003da5 !important; /* reference cobalt blue */
 
     &:hover {
-      color: #005a9e !important;
+      color: #002d78 !important;
     }
   }
 
@@ -734,10 +784,10 @@ table.table a {
     left: 15px;
     width: calc(16.666667% - 30px);
     padding: 0.14rem 0.35rem;
-    border: 1px solid #8b1a2b;
+    border: 1px solid #9cb9d1;
     border-radius: 999px;
-    background: rgba(139, 26, 43, 0.06);
-    color: #7b1d32;
+    background: #eaf2f8;
+    color: #355f7c;
     font-size: 0.82rem;
     font-weight: 700;
     letter-spacing: 0.06em;
