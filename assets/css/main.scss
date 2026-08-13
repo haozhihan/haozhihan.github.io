@@ -85,6 +85,11 @@ b {
   font-weight: 700;
 }
 
+.bio-highlight {
+  color: #8b1a2b;
+  font-weight: 700;
+}
+
 /* ---------------------------------------------------------------------------
    Slimmer top navbar (more compact, like wang-yuke.com).
    ID-scoped so it wins over the theme's default .navbar / .nav-link padding.
@@ -156,7 +161,7 @@ table.table a {
   .pub-honor {
     display: inline-block;
     padding: 0.05rem 0.5rem;
-    font-size: 0.72rem;
+    font-size: 0.82rem;
     font-weight: 700;
     letter-spacing: 0.03em;
     color: #fff;
@@ -171,31 +176,63 @@ table.table a {
     color: #fff; /* white text */
   }
 
+  /* Conference badges (e.g. SC '26) share the slightly larger tag scale. */
+  .abbr .badge {
+    font-size: 0.82rem;
+  }
+
+  /* Official coverage links are rendered from a paper's `note` field, directly
+     above its publication buttons. */
+  .pub-feature-label,
+  .pub-feature-link {
+    display: inline-block;
+    margin-top: 0.12rem;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+
+  .pub-feature-label {
+    color: #e53935; /* vivid red */
+  }
+
+  .pub-feature-link {
+    color: #0078d4 !important; /* Microsoft blue */
+
+    &:hover {
+      color: #005a9e !important;
+    }
+  }
+
   .links {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem;
+    gap: 0.35rem;
     align-items: center;
 
     a.btn {
       display: inline-flex !important;
-      min-width: 3.35rem;
-      min-height: 1.55rem;
+      min-width: 0;
+      height: 1.32rem;
       justify-content: center;
       align-items: center;
-      padding: 0.1rem 0.42rem;
+      padding: 0.05rem 0.54rem;
       margin: 0;
       border: 1px solid var(--global-text-color);
-      border-radius: 2px;
+      border-radius: 1px;
       color: var(--global-text-color);
-      font-size: 0.875rem;
-      line-height: 1.5;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.025em;
+      line-height: 1;
       text-decoration: none;
+      text-transform: uppercase;
 
       &::after {
         color: inherit;
-        font-size: 0.875rem;
-        line-height: 1.5;
+        font-size: 0.7rem;
+        font-weight: 500;
+        letter-spacing: 0.025em;
+        line-height: 1;
       }
 
       &:hover {
@@ -206,11 +243,11 @@ table.table a {
     }
 
     a[href^="https://doi.org/"]::after {
-      content: "paper";
+      content: "PAPER";
     }
 
     a.bibtex::after {
-      content: "bib";
+      content: "BIB";
     }
 
     a[href^="https://doi.org/"],
@@ -224,9 +261,11 @@ table.table a {
     font-size: 0;
 
     &::after {
-      content: "paper";
-      font-size: 0.875rem;
-      line-height: 1.5;
+      content: "PAPER";
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.025em;
+      line-height: 1;
     }
   }
 }
@@ -699,7 +738,7 @@ table.table a {
     border-radius: 999px;
     background: rgba(139, 26, 43, 0.06);
     color: #7b1d32;
-    font-size: 0.65rem;
+    font-size: 0.82rem;
     font-weight: 700;
     letter-spacing: 0.06em;
     line-height: 1.1;
@@ -716,7 +755,7 @@ table.table a {
     border-radius: 0.35rem;
     background: rgba(184, 134, 11, 0.1);
     color: #866307;
-    font-size: 0.72rem;
+    font-size: 0.82rem;
     font-weight: 700;
     letter-spacing: 0;
     line-height: 1.25;
