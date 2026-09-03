@@ -307,6 +307,7 @@ table.table a {
   }
 
   /* A DOI is the paper's reader-facing link; use the clearer label. */
+  /*! purgecss start ignore */
   .links a[href^="https://doi.org/"] {
     font-size: 0;
 
@@ -318,6 +319,7 @@ table.table a {
       line-height: 1;
     }
   }
+  /*! purgecss end ignore */
 }
 
 /* Publication titles are the primary scan target. Keep them in the site's
