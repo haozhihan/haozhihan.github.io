@@ -8,10 +8,10 @@ subtitle:
 # _layouts/about.liquid override). Replace `image` with your own banner and
 # tweak the text; remove this whole block to disable the banner.
 banner:
-  image: assets/img/pku.png
-  position: center 35%
+  image: assets/img/pku-1898-2023.png
+  position: center 25%
   title: "Haozhi Han @ PKU"
-  title_color: "#ffffff" # banner title color (white reads best over this bright, busy photo); omit for default white
+  title_color: "#F4EBDD" # warm ivory complements the banner's muted, historic palette
   tagline: #"Systems & Algorithms for Scalable Physical Intelligence"
   border: false # set true for a frame around the banner, like wang-yuke.com
   border_color: "#e74c3c" # frame color (used only when border: true); e.g. "#185fa5" for blue

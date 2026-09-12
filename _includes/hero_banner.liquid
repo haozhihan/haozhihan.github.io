@@ -22,6 +22,7 @@
 
   <style>
     .about-banner {
+      --banner-nav-overlap: 51px;
       /* break out of the centered `.container` to full viewport width */
       position: relative;
       left: 50%;
@@ -29,10 +30,13 @@
       width: 100vw;
       margin-left: -50vw;
       margin-right: -50vw;
-      margin-top: -3rem; /* tuck right under the fixed navbar (cancels .container mt-5) */
+      /* Extend behind the fixed navbar without changing where the page content starts. */
+      margin-top: calc(-3rem - var(--banner-nav-overlap));
       margin-bottom: 2.5rem;
       /* Match the compact 240px desktop hero used by limigwenshao.github.io. */
-      height: 240px;
+      height: calc(240px + var(--banner-nav-overlap));
+      box-sizing: border-box;
+      padding-top: var(--banner-nav-overlap);
       background-size: cover;
       background-position: center top; /* can be overridden per page via banner.position */
       display: flex;
@@ -73,8 +77,27 @@
       margin: 0.5rem 0 0;
       font-size: 1.2rem;
     }
+    /* On banner pages, let the scenery remain visible through the navigation. */
+    body:has(.about-banner) #navbar.navbar {
+      background-color: rgba(255, 255, 255, 0.16);
+      border-bottom-color: rgba(20, 24, 28, 0.14);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
+      opacity: 1;
+      -webkit-backdrop-filter: blur(5px) saturate(115%);
+      backdrop-filter: blur(5px) saturate(115%);
+    }
+    body:has(.about-banner) #navbar .navbar-nav .nav-item .nav-link {
+      color: #202124;
+      text-shadow: 0 1px 2px rgba(255, 255, 255, 0.7);
+    }
+    body:has(.about-banner) #navbar .navbar-toggler .icon-bar {
+      background-color: #202124;
+    }
     @media (max-width: 768px) {
-      .about-banner { height: 200px; }
+      .about-banner {
+        --banner-nav-overlap: 43px;
+        height: calc(200px + var(--banner-nav-overlap));
+      }
       .about-banner__title { font-size: 2rem; }
     }
   </style>
