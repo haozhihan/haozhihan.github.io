@@ -18,6 +18,6 @@ banner:
 
 <div class="publications">
 
-{% bibliography %}
+{% bibliography --query @*[homepage_publication=true] %}
 
 </div>
