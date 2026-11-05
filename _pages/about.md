@@ -49,5 +49,5 @@ Hi! I am Haozhi Han (韩昊知), a Ph.D. student at the [School of Computer Scie
 🏆 My work has appeared at premier venues including SC, NeurIPS, PPoPP, and ISC, with an SC 2025 Best Student Paper nomination.
 
 <div class="recruit-callout" markdown="1">
-🤝 **Looking for long-term collaborators** in HPC, AI4S infrastructure, and physical intelligence. <span class="recruit-callout__email">🙋 Feel free to reach out via [email](mailto:haozhi.han@stu.pku.edu.cn).</span>
+🤝 **Looking for long-term collaborators** in Scientific AI, High-Performance Computing, and Agentic Systems. <span class="recruit-callout__email">🙋 Feel free to reach out via [email](mailto:haozhi.han@stu.pku.edu.cn).</span>
 </div>
