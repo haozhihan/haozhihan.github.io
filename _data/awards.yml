@@ -1,12 +1,18 @@
 - title: ACM SIGHPC SC Student Travel Grant
   date: "2026.10"
   institution: ACM Special Interest Group on High Performance Computing (SIGHPC)
-  description: One of only six recipients worldwide each year, and the first recipient from China.
+  description: |-
+    Only six recipients worldwide each year.
+    The first-ever recipient from China.
+  highlight: true
 
 - title: National Scholarship
   date: "2026.09"
   institution: Ministry of Education, China
-  description: A national graduate scholarship recognizing academic excellence; awarded to the top 1‰ (0.1%) of students at Peking University.
+  description: |-
+    A national honor for outstanding graduate students.
+    Awarded to the top 0.1% at Peking University.
+  highlight: true
 
 - title: Outstanding Student Award
   date: "2026.09"
@@ -19,7 +25,8 @@
 - title: SC’25 Best Student Paper Award Finalist
   date: "2025.11"
   institution: ACM/IEEE SC Conference
-  description: One of just six finalist papers worldwide for the Best Student Paper Award at SC’25, the International Conference for High Performance Computing, Networking, Storage and Analysis.
+  description: One of only six Best Student Paper Award finalists worldwide.
+  highlight: true
 
 - title: “Star of Tomorrow” Outstanding Intern Award
   date: "2025.03"
