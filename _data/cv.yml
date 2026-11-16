@@ -9,6 +9,20 @@ cv:
     systems and algorithms for scalable physical intelligence, spanning scientific
     computing, AI4Science infrastructure, and embodied AI.
 
+  research_spotlight:
+    - source: Microsoft Research Asia
+      type: Researcher Interview
+      title: "Haozhi Han: Combining HPC and AI to Advance Scientific Computing"
+      url: https://mp.weixin.qq.com/s/t3LFewL9gZ_5Y3atrdpv1A
+    - source: Institute for AI Industry Research (AIR), Tsinghua University
+      type: Research Feature
+      title: "Bringing AI Computing Power to the Electronic World: MakoXC Reimagines First-Principles Calculations"
+      url: https://mp.weixin.qq.com/s/JwN5XQppjFvLexsnEe-UhA
+    - source: Tecorigin × Tsinghua AIR
+      type: Research Feature
+      title: "AtomWorld: An Atomic World Model for ‘Cellular Checkups’ of Nuclear Power Plants"
+      url: https://mp.weixin.qq.com/s/L4jwqdWHyp3ulpWvffV5qg
+
   social_networks:
     - network: GoogleScholar
       username: qTWHUpwAAAAJ

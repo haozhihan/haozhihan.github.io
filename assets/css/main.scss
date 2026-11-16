@@ -586,6 +586,34 @@ table.table a {
     white-space: nowrap;
   }
 
+  .cv-spotlight__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li { padding: .9rem 0; }
+    li + li { border-top: 1px solid var(--global-divider-color); }
+    li:last-child { padding-bottom: .25rem; }
+  }
+
+  .cv-spotlight__source {
+    margin: 0 0 .3rem;
+    color: var(--global-text-color-light);
+    font-size: .85rem;
+    line-height: 1.6;
+  }
+
+  .cv-spotlight__title {
+    font-weight: 500;
+    line-height: 1.65;
+    overflow-wrap: anywhere;
+
+    &:focus-visible {
+      outline: 2px solid var(--global-theme-color);
+      outline-offset: 3px;
+    }
+  }
+
   .cv-services {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));

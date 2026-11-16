@@ -32,10 +32,17 @@
         </section>
       {% endif %}
 
-      {% if cv.summary %}
-        <section class="card mt-3 p-3">
-          <h3 class="cv-awards__heading">Professional Summary</h3>
-          <p>{{ cv.summary | markdownify | remove: '<p>' | remove: '</p>' }}</p>
+      {% if cv.research_spotlight.size > 0 %}
+        <section class="card mt-3 p-3 cv-spotlight" aria-labelledby="research-spotlight-heading">
+          <h3 id="research-spotlight-heading" class="cv-awards__heading">Media Coverage</h3>
+          <ul class="cv-spotlight__list">
+            {% for feature in cv.research_spotlight %}
+              <li>
+                <p class="cv-spotlight__source">{{ feature.source | escape }} <span aria-hidden="true">·</span> {{ feature.type | escape }}</p>
+                <a class="cv-spotlight__title" href="{{ feature.url | escape }}">{{ feature.title | escape }}</a>
+              </li>
+            {% endfor %}
+          </ul>
         </section>
       {% endif %}
 
