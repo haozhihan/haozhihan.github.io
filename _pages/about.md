@@ -44,7 +44,10 @@ latest_posts:
 Hi! I am Haozhi Han (韩昊知), a Ph.D. student at the [School of Computer Science](https://cs.pku.edu.cn/), [Peking University](https://www.pku.edu.cn/), advised by [Prof. Yifeng Chen](https://cs.pku.edu.cn/info/1062/1606.htm) and [Assistant Prof. Kun Li](https://www.likun.tech/). 
 <!-- I am also a research intern at [Microsoft Research Asia](https://www.microsoft.com/en-us/research/lab/microsoft-research-asia/). -->
 
-🔬 My research advances Scientific AI, High-Performance Computing, and Agentic Systems, spanning AI foundations, scalable scientific algorithms, and autonomous discovery. I seek to <strong style="color: #83152d;">expand the frontier of what we can compute and discover.</strong>
+🔬 My research advances Scientific AI, High-Performance Computing, and Agentic Systems, spanning AI foundations, scalable scientific algorithms, and autonomous discovery.
+
+I seek to expand what we can *compute, learn, and discover*.
+{:.research-statement}
 
 🏆 My work has appeared at premier venues including SC, NeurIPS, PPoPP, and ISC, with an SC 2025 Best Student Paper nomination.
 
