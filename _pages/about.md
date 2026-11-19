@@ -46,7 +46,7 @@ Hi! I am Haozhi Han (韩昊知), a Ph.D. student at the [School of Computer Scie
 
 🔬 My research advances Scientific AI, High-Performance Computing, and Agentic Systems, spanning AI foundations, scalable scientific algorithms, and autonomous discovery.
 
-I seek to expand what we can *compute, learn, and discover*.
+I seek to expand the frontiers of *computing, learning, and discovery*.
 {:.research-statement}
 
 🏆 My work has appeared at premier venues including SC, NeurIPS, PPoPP, and ISC, with an SC 2025 Best Student Paper nomination.
